@@ -1,8 +1,10 @@
-export default function CreateCharacterCard(characterObject) {
-  const card = document.createElement("li");
-  card.classList.add("card");
+const cardContainer = document.querySelector('[data-js="card-container"]');
 
-  card.innerHTML = `
+export default function CreateCharacterCard(characterObject) {
+   const card = document.createElement("li");
+   card.classList.add("card");
+
+   card.innerHTML = `
       <div class="card__image-container">
         <img
           class="card__image"
@@ -28,5 +30,5 @@ export default function CreateCharacterCard(characterObject) {
       </div>
   `;
 
-  return card;
+   return card;
 }
