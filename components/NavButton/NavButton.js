@@ -1,20 +1,31 @@
-export function NavButton({ Clicknext, Clickprev }) {
-  const nav = document.createElement("nav");
+// export function NavButton({ onNext, onPrev, pagElement }) {
+//   const nav = document.createElement("nav");
 
-  const prevButton = document.createElement("button");
-  prevButton.classList.add("button");
-  prevButton.textContent = "previous";
+//   const prevButton = document.createElement("button");
+//   prevButton.classList.add("button");
+//   prevButton.textContent = "previous";
+  
+//   prevButton.addEventListener("click", onPrev);
 
-  const nextButton = document.createElement("button");
-  nextButton.classList.add("button");
-  nextButton.textContent = "next";
+//   const nextButton = document.createElement("button");
+//   nextButton.classList.add("button");
+//   nextButton.textContent = "next";
 
-  //CLICK
+//   nextButton.addEventListener("click", onNext);
 
-  prevButton.addEventListener("click", Clickprev);
-  nextButton.addEventListener("click", Clicknext);
+//   nav.append(prevButton, pagElement ,nextButton);
 
-  nav.append(prevButton, nextButton);
+//   return nav;
+// }
 
-  return nav;
-}
+export function NavButton(label, onClick) {
+
+  const button = document.createElement("button");
+
+  button.textContent = label;
+  button.className = "button";
+
+  button.addEventListener("click", onClick);
+
+  return button;
+};
