@@ -37,10 +37,10 @@ async function fetchCharacters() {
     cardContainer.append(card);
   });
   renderPagination();
-  
+
 } catch (error){
    console.error(error);
-   cardContainer.innerHTML="<p>Loading failed. Try again.</p>";
+   cardContainer.innerHTML="<p>Loading failed. Please wait and try again.</p>";
 }
 
    function renderPagination(){
@@ -86,74 +86,3 @@ const search = SearchBar((event) => {
    fetchCharacters();
 });
 searchBarContainer.append(search);
-
-//ALTER CODE BUTTON IN HTML
-// nextButton.addEventListener("click", () =>{
-   //    if (page < maxPage) {
-      //       page++;
-//       fetchCharacters();
-//    }
-// });
-
-//Pagination aktualisieren = aktuelle Seite + Gesamtseiten
-// pagination.textContent = `${page} / ${maxPage}`;
-// const prevButton = document.querySelector('[data-js="button-prev"]');
-// const nextButton = document.querySelector('[data-js="button-next"]');
-// const pagination = document.querySelector('[data-js="pagination"]');
-// const searchBar = document.querySelector('[data-js="search-bar"]');
-
-// let pageIndex = 1;
-// await fetchCharacters(pageIndex);
-
-// const allTwentyCards = cardContainer.querySelectorAll("li");
-// console.log("cards`s", allTwentyCards);
-
-// async function fetchCharacters(index) {
-//    const response = await fetch(`https://rickandmortyapi.com/api/character?page=${index}`);
-//    const data = await response.json();
-
-//    console.log(data);
-
-//    const NewCharacters = data.results;
-//    console.log(data.results);
-
-//    NewCharacters.forEach((element) => {
-//       CreateCharacterCard(element);
-//       cardContainer.append(CreateCharacterCard(element));
-//    });
-
-//    // return data;
-// }
-// nextButton.addEventListener("click", () => {
-//    // Max
-//    pageIndex++;
-//    fetchCharacters(pageIndex);
-// });
-
-// prevButton.addEventListener("click", () => {
-//    pageIndex ? pageIndex-- > 0(pageIndex--) : (pageIndex = 0);
-
-//    // delete old page:
-
-//    fetchCharacters(pageIndex);
-// });
-
-//Button vorher
-
-// const pagElement = NavPagination(page, maxPage);
-// const nav = NavButton({
- // onPrev: () => {
-//    if (page > 1) {
-//       page--;
-//       fetchCharacters();
-//    }
-// },
-// onNext: () => {
-//    if (page < maxPage) {
-//       page++;
-//       fetchCharacters();
-//    }
-// },
-//    pagElement,
-// });
-//    navigation.append(nav);
