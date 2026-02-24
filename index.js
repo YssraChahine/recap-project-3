@@ -15,9 +15,14 @@ let page = 1;
 let searchQuery = "";
 
 async function fetchCharacters() {
-  const response = await fetch(
+  try {
+   const response = await fetch(
     `https://rickandmortyapi.com/api/character?page=${page}&name=${searchQuery}`,
   );
+  if (!response.ok){
+   throw new Error("API returned Error");
+  }
+
   const data = await response.json();
 
   // Maximale Seiten speichern
@@ -27,10 +32,16 @@ async function fetchCharacters() {
   cardContainer.innerHTML = "";
 
   //Für jeden Character eine neue Karte erstellen
-  data.results.forEach((character) => {
+   data.results.forEach((character) => {
     const card = CreateCharacterCard(character);
     cardContainer.append(card);
   });
+  renderPagination();
+  
+} catch (error){
+   console.error(error);
+   cardContainer.innerHTML="<p>Loading failed. Try again.</p>";
+}
 
    function renderPagination(){
 
@@ -42,8 +53,8 @@ async function fetchCharacters() {
       navigation.append(NavPagination(page, maxPage));
       navigation.append(nextButton);
 
-}; renderPagination();
-}; fetchCharacters();
+}; 
+}; fetchCharacters(); 
 
 // Button
  const prevButton = NavButton("Prev", () => {
